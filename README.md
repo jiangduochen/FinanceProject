@@ -1,1 +1,1 @@
-# FinanceProject
+# Financial Engineering C++ Project
