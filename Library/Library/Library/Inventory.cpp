@@ -111,12 +111,13 @@ CheckInOrOutResult Inventory::CheckInOrOutBook(std::string title, bool checkOut)
 	}
 
 	Books[foundBookIndex].CheckInOrOut(checkOut);
-	
+
 	std::ofstream oFile("books.txt");
 	for (int i = 0; i < Books.size(); i++)
 	{
 		oFile << Books[i].GetBookFileData() << std::endl;
 	}
+
 	return CheckInOrOutResult::Success;
 }
 

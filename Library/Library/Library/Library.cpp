@@ -4,7 +4,7 @@
 #include <string>
 #include "User.h"
 #include <fstream>
-#include "MenuOption.h"
+
 using namespace std;
 
 Inventory _inventory;
@@ -145,37 +145,23 @@ void Login()
 	}
 }
 
-vector<MenuOption> GetMenuOptions()
-{
-	vector<MenuOption> menuOptions;
-	menuOptions.push_back(MenuOption{"Add book", Role::Employee });
-	menuOptions.push_back(MenuOption{ "Remove book from library", Role::Employee });
-	menuOptions.push_back(MenuOption{ "List all checked out books", Role::Employee });
-
-	menuOptions.push_back(MenuOption{ "List all books", Role::Member });
-	menuOptions.push_back(MenuOption{ "Check out book", Role::Member });
-	menuOptions.push_back(MenuOption{ "Check in book", Role::Member });
-
-	return menuOptions;
-}
-
 void DisplayMainMenu()
-{	
+{
 	cout << endl;
 	cout << "Choose an option:" << endl;
 
 	cout << "1. List all books" << endl;
-	cout << "2. Check out books" << endl;
+	cout << "2. Check out book" << endl;
 	cout << "3. Check in book" << endl;
 
-	if (_loggedInUser.Role == Role::Employee ||
-			_loggedInUser.Role == Role::Admin)
-		{
-			cout << "4. Add book" << endl;
-			cout << "5. Remove book from library" << endl;
-			cout << "6. List all checked out books" << endl;
-		}
-	
+	if (_loggedInUser.Role == Role::Employee
+		|| _loggedInUser.Role == Role::Admin)
+	{
+		cout << "4. Add book" << endl;
+		cout << "5. Remove book from library" << endl;
+		cout << "6. List all checked out books" << endl;
+	}
+
 	cout << "9. Log out" << endl;
 	cout << "0. Exit" << endl;
 }
